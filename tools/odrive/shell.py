@@ -85,7 +85,6 @@ def launch_shell(args, logger):
             return None # reject this object
         if hasattr(obj, '_otp_valid_property') and not await obj._otp_valid_property.read():
             logger.warn("Device {}: Not a genuine ODrive! Some features may not work as expected.".format(serial_number_str))
-            return ("device " + serial_number_str, "dev")
         return ("ODrive " + serial_number_str, "odrv")
 
     fibre.launch_shell(args, mount,
